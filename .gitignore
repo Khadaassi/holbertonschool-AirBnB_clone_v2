@@ -1,3 +1,4 @@
 test_params_create
 *.pyc
 *.json
+main_delete.py
