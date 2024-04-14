@@ -1,41 +1,40 @@
 #!/usr/bin/python3
 """ Script that starts a Flask web application """
 
-
 from flask import Flask
 
 app = Flask(__name__)
 
 
-@app.route('/', strict_slashes=False)
+@app.route("/", strict_slashes=False)
 def hello():
-    """ Display "Hello HBTN!" when access """
-    return "Hello HBTN!"
+    """ Returns string when accessing the root route of web server """
+    return "Hello HBNB!"
 
 
-@app.route('/hbtn', strict_slashes=False)
-def hbtn():
-    """ Display "HBTN" when access /hbtn route """
-    return "HBTN"
+@app.route("/hbnb", strict_slashes=False)
+def hbnb():
+    """ Returns string when accessing the /hbnb route of web server """
+    return "HBNB"
 
 
-@app.route('/c/<text>', strict_slashes=False)
-def cfun(text):
-    """ Display string when access /c/<text> route """
+@app.route("/c/<text>", strict_slashes=False)
+def c_text(text):
+    """ Returns string when accessing the /c/<text> route of web server """
     return "C {}".format(text.replace("_", " "))
 
 
-@app.route('/python/<text>', strict_slashes=False)
-@app.route('/python/', defaults={"text": "is cool"}, strict_slashes=False)
-def pythontxt(text):
-    """ Display string string when access /python route """
+@app.route("/python/<text>", strict_slashes=False)
+@app.route("/python/", defaults={"text": "is cool"}, strict_slashes=False)
+def python_text(text):
+    """ Returns string when accessing the /python route of web server """
     return "Python {}".format(text.replace("_", " "))
 
 
-@app.route('/number/<int:n>', strict_slashes=False)
-def number(value):
-    """ Display integer when access /number route """
-    return "{} is a number".format(value)
+@app.route("/number/<int:n>", strict_slashes=False)
+def number(n):
+    """ Display “n is a number” only if n is an integer """
+    return "{} is a number".format(n)
 
 
 if __name__ == "__main__":
