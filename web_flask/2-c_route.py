@@ -1,27 +1,29 @@
 #!/usr/bin/python3
-"""Start a Flask web application"""
+""" Script that starts a Flask web application """
+
+
 from flask import Flask
 
 app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False)
-def hello_hbnb():
-    """Display Hello HBNB! when accessing root"""
-    return "Hello HBNB!"
+def hello():
+    """ Display "Hello HBTN!" when access """
+    return "Hello HBTN!"
 
 
-@app.route('/hbnb', strict_slashes=False)
-def hbnb():
-    """Display HBNB when accessing /hbnb"""
-    return "HBNB"
+@app.route('/hbtn', strict_slashes=False)
+def hbtn():
+    """ Display "HBTN" when access /hbtn route """
+    return "HBTN"
 
 
 @app.route('/c/<text>', strict_slashes=False)
-def c(text):
-    """Display C followed by the value of text"""
-    return "C {}".format(text.replace('_', ' '))
+def cfun(text):
+    """ Display string when access /c/<text> route """
+    return "C {}".format(text.replace("_", " "))
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host="0.0.0.0", port=5000)
